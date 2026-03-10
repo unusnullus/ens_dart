@@ -2,8 +2,8 @@
 
 import 'dart:typed_data';
 import 'package:convert/convert.dart';
+import 'package:wallet/wallet.dart';
 
-import 'package:web3dart/crypto.dart';
 import 'package:web3dart/web3dart.dart';
 
 import 'ens_dart.dart';
@@ -29,7 +29,7 @@ extension EnsResolve on Ens {
 
   /// Reverse node hash for ENS name
   Uint8List get reverseNodeHash => hexToBytes(
-      ENSUtils.reverseNameHash('${ensAddress!.hexNo0x}.addr.reverse'));
+      ENSUtils.reverseNameHash('${ensAddress!.without0x}.addr.reverse'));
 
   /// Returns the owner/controller for the current ENS name.
   Future<EthereumAddress> getAddress() async {
@@ -66,7 +66,7 @@ extension EnsResolve on Ens {
     final _resolvedAddress = await setAddr(
       nodeHash,
       coinType,
-      address.addressBytes,
+      address.value,
       credentials: credentials,
       transaction: transaction,
     );

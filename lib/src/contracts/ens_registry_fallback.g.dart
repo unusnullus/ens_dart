@@ -1,7 +1,8 @@
 // Generated code, do not modify. Run `build_runner build` to re-generate!
 // @dart=2.12
 import 'package:web3dart/web3dart.dart' as _i1;
-import 'dart:typed_data' as _i2;
+import 'package:wallet/wallet.dart' as _i2;
+import 'dart:typed_data' as _i3;
 
 final _contractAbi = _i1.ContractAbi.fromJson(
     '[{"inputs":[{"internalType":"contract ENS","name":"_old","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"node","type":"bytes32"},{"indexed":true,"internalType":"bytes32","name":"label","type":"bytes32"},{"indexed":false,"internalType":"address","name":"owner","type":"address"}],"name":"NewOwner","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"node","type":"bytes32"},{"indexed":false,"internalType":"address","name":"resolver","type":"address"}],"name":"NewResolver","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"node","type":"bytes32"},{"indexed":false,"internalType":"uint64","name":"ttl","type":"uint64"}],"name":"NewTTL","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"node","type":"bytes32"},{"indexed":false,"internalType":"address","name":"owner","type":"address"}],"name":"Transfer","type":"event"},{"constant":true,"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"old","outputs":[{"internalType":"contract ENS","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"}],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"}],"name":"recordExists","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"}],"name":"resolver","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"bool","name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"},{"internalType":"address","name":"owner","type":"address"}],"name":"setOwner","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"},{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"resolver","type":"address"},{"internalType":"uint64","name":"ttl","type":"uint64"}],"name":"setRecord","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"},{"internalType":"address","name":"resolver","type":"address"}],"name":"setResolver","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"},{"internalType":"bytes32","name":"label","type":"bytes32"},{"internalType":"address","name":"owner","type":"address"}],"name":"setSubnodeOwner","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"},{"internalType":"bytes32","name":"label","type":"bytes32"},{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"resolver","type":"address"},{"internalType":"uint64","name":"ttl","type":"uint64"}],"name":"setSubnodeRecord","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"},{"internalType":"uint64","name":"ttl","type":"uint64"}],"name":"setTTL","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"internalType":"bytes32","name":"node","type":"bytes32"}],"name":"ttl","outputs":[{"internalType":"uint64","name":"","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"}]',
@@ -9,7 +10,7 @@ final _contractAbi = _i1.ContractAbi.fromJson(
 
 class EnsRegistryFallback extends _i1.GeneratedContract {
   EnsRegistryFallback({
-    required _i1.EthereumAddress address,
+    required _i2.EthereumAddress address,
     required _i1.Web3Client client,
     int? chainId,
   }) : super(_i1.DeployedContract(_contractAbi, address), client, chainId);
@@ -18,7 +19,7 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// set, the function will be evaluated in the specified block. By default, the
   /// latest on-chain block will be used.
   Future<bool> isApprovedForAll(
-      _i1.EthereumAddress owner, _i1.EthereumAddress operator,
+      _i2.EthereumAddress owner, _i2.EthereumAddress operator,
       {_i1.BlockNum? atBlock}) async {
     final function = self.abi.functions[1];
     assert(checkSignature(function, 'e985e9c5'));
@@ -30,30 +31,30 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// The optional [atBlock] parameter can be used to view historical data. When
   /// set, the function will be evaluated in the specified block. By default, the
   /// latest on-chain block will be used.
-  Future<_i1.EthereumAddress> old({_i1.BlockNum? atBlock}) async {
+  Future<_i2.EthereumAddress> old({_i1.BlockNum? atBlock}) async {
     final function = self.abi.functions[2];
     assert(checkSignature(function, 'b83f8663'));
     final params = [];
     final response = await read(function, params, atBlock);
-    return (response[0] as _i1.EthereumAddress);
+    return (response[0] as _i2.EthereumAddress);
   }
 
   /// The optional [atBlock] parameter can be used to view historical data. When
   /// set, the function will be evaluated in the specified block. By default, the
   /// latest on-chain block will be used.
-  Future<_i1.EthereumAddress> owner(_i2.Uint8List node,
+  Future<_i2.EthereumAddress> owner(_i3.Uint8List node,
       {_i1.BlockNum? atBlock}) async {
     final function = self.abi.functions[3];
     assert(checkSignature(function, '02571be3'));
     final params = [node];
     final response = await read(function, params, atBlock);
-    return (response[0] as _i1.EthereumAddress);
+    return (response[0] as _i2.EthereumAddress);
   }
 
   /// The optional [atBlock] parameter can be used to view historical data. When
   /// set, the function will be evaluated in the specified block. By default, the
   /// latest on-chain block will be used.
-  Future<bool> recordExists(_i2.Uint8List node, {_i1.BlockNum? atBlock}) async {
+  Future<bool> recordExists(_i3.Uint8List node, {_i1.BlockNum? atBlock}) async {
     final function = self.abi.functions[4];
     assert(checkSignature(function, 'f79fe538'));
     final params = [node];
@@ -64,19 +65,19 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// The optional [atBlock] parameter can be used to view historical data. When
   /// set, the function will be evaluated in the specified block. By default, the
   /// latest on-chain block will be used.
-  Future<_i1.EthereumAddress> resolver(_i2.Uint8List node,
+  Future<_i2.EthereumAddress> resolver(_i3.Uint8List node,
       {_i1.BlockNum? atBlock}) async {
     final function = self.abi.functions[5];
     assert(checkSignature(function, '0178b8bf'));
     final params = [node];
     final response = await read(function, params, atBlock);
-    return (response[0] as _i1.EthereumAddress);
+    return (response[0] as _i2.EthereumAddress);
   }
 
   /// The optional [transaction] parameter can be used to override parameters
   /// like the gas price, nonce and max gas. The `data` and `to` fields will be
   /// set by the contract.
-  Future<String> setApprovalForAll(_i1.EthereumAddress operator, bool approved,
+  Future<String> setApprovalForAll(_i2.EthereumAddress operator, bool approved,
       {required _i1.Credentials credentials,
       _i1.Transaction? transaction}) async {
     final function = self.abi.functions[6];
@@ -88,7 +89,7 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// The optional [transaction] parameter can be used to override parameters
   /// like the gas price, nonce and max gas. The `data` and `to` fields will be
   /// set by the contract.
-  Future<String> setOwner(_i2.Uint8List node, _i1.EthereumAddress owner,
+  Future<String> setOwner(_i3.Uint8List node, _i2.EthereumAddress owner,
       {required _i1.Credentials credentials,
       _i1.Transaction? transaction}) async {
     final function = self.abi.functions[7];
@@ -100,8 +101,8 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// The optional [transaction] parameter can be used to override parameters
   /// like the gas price, nonce and max gas. The `data` and `to` fields will be
   /// set by the contract.
-  Future<String> setRecord(_i2.Uint8List node, _i1.EthereumAddress owner,
-      _i1.EthereumAddress resolver, BigInt ttl,
+  Future<String> setRecord(_i3.Uint8List node, _i2.EthereumAddress owner,
+      _i2.EthereumAddress resolver, BigInt ttl,
       {required _i1.Credentials credentials,
       _i1.Transaction? transaction}) async {
     final function = self.abi.functions[8];
@@ -113,7 +114,7 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// The optional [transaction] parameter can be used to override parameters
   /// like the gas price, nonce and max gas. The `data` and `to` fields will be
   /// set by the contract.
-  Future<String> setResolver(_i2.Uint8List node, _i1.EthereumAddress resolver,
+  Future<String> setResolver(_i3.Uint8List node, _i2.EthereumAddress resolver,
       {required _i1.Credentials credentials,
       _i1.Transaction? transaction}) async {
     final function = self.abi.functions[9];
@@ -126,7 +127,7 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// like the gas price, nonce and max gas. The `data` and `to` fields will be
   /// set by the contract.
   Future<String> setSubnodeOwner(
-      _i2.Uint8List node, _i2.Uint8List label, _i1.EthereumAddress owner,
+      _i3.Uint8List node, _i3.Uint8List label, _i2.EthereumAddress owner,
       {required _i1.Credentials credentials,
       _i1.Transaction? transaction}) async {
     final function = self.abi.functions[10];
@@ -138,8 +139,8 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// The optional [transaction] parameter can be used to override parameters
   /// like the gas price, nonce and max gas. The `data` and `to` fields will be
   /// set by the contract.
-  Future<String> setSubnodeRecord(_i2.Uint8List node, _i2.Uint8List label,
-      _i1.EthereumAddress owner, _i1.EthereumAddress resolver, BigInt ttl,
+  Future<String> setSubnodeRecord(_i3.Uint8List node, _i3.Uint8List label,
+      _i2.EthereumAddress owner, _i2.EthereumAddress resolver, BigInt ttl,
       {required _i1.Credentials credentials,
       _i1.Transaction? transaction}) async {
     final function = self.abi.functions[11];
@@ -151,7 +152,7 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// The optional [transaction] parameter can be used to override parameters
   /// like the gas price, nonce and max gas. The `data` and `to` fields will be
   /// set by the contract.
-  Future<String> setTTL(_i2.Uint8List node, BigInt ttl,
+  Future<String> setTTL(_i3.Uint8List node, BigInt ttl,
       {required _i1.Credentials credentials,
       _i1.Transaction? transaction}) async {
     final function = self.abi.functions[12];
@@ -163,7 +164,7 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
   /// The optional [atBlock] parameter can be used to view historical data. When
   /// set, the function will be evaluated in the specified block. By default, the
   /// latest on-chain block will be used.
-  Future<BigInt> ttl(_i2.Uint8List node, {_i1.BlockNum? atBlock}) async {
+  Future<BigInt> ttl(_i3.Uint8List node, {_i1.BlockNum? atBlock}) async {
     final function = self.abi.functions[13];
     assert(checkSignature(function, '16a25cbd'));
     final params = [node];
@@ -234,56 +235,56 @@ class EnsRegistryFallback extends _i1.GeneratedContract {
 
 class ApprovalForAll {
   ApprovalForAll(List<dynamic> response)
-      : owner = (response[0] as _i1.EthereumAddress),
-        operator = (response[1] as _i1.EthereumAddress),
+      : owner = (response[0] as _i2.EthereumAddress),
+        operator = (response[1] as _i2.EthereumAddress),
         approved = (response[2] as bool);
 
-  final _i1.EthereumAddress owner;
+  final _i2.EthereumAddress owner;
 
-  final _i1.EthereumAddress operator;
+  final _i2.EthereumAddress operator;
 
   final bool approved;
 }
 
 class NewOwner {
   NewOwner(List<dynamic> response)
-      : node = (response[0] as _i2.Uint8List),
-        label = (response[1] as _i2.Uint8List),
-        owner = (response[2] as _i1.EthereumAddress);
+      : node = (response[0] as _i3.Uint8List),
+        label = (response[1] as _i3.Uint8List),
+        owner = (response[2] as _i2.EthereumAddress);
 
-  final _i2.Uint8List node;
+  final _i3.Uint8List node;
 
-  final _i2.Uint8List label;
+  final _i3.Uint8List label;
 
-  final _i1.EthereumAddress owner;
+  final _i2.EthereumAddress owner;
 }
 
 class NewResolver {
   NewResolver(List<dynamic> response)
-      : node = (response[0] as _i2.Uint8List),
-        resolver = (response[1] as _i1.EthereumAddress);
+      : node = (response[0] as _i3.Uint8List),
+        resolver = (response[1] as _i2.EthereumAddress);
 
-  final _i2.Uint8List node;
+  final _i3.Uint8List node;
 
-  final _i1.EthereumAddress resolver;
+  final _i2.EthereumAddress resolver;
 }
 
 class NewTTL {
   NewTTL(List<dynamic> response)
-      : node = (response[0] as _i2.Uint8List),
+      : node = (response[0] as _i3.Uint8List),
         ttl = (response[1] as BigInt);
 
-  final _i2.Uint8List node;
+  final _i3.Uint8List node;
 
   final BigInt ttl;
 }
 
 class Transfer {
   Transfer(List<dynamic> response)
-      : node = (response[0] as _i2.Uint8List),
-        owner = (response[1] as _i1.EthereumAddress);
+      : node = (response[0] as _i3.Uint8List),
+        owner = (response[1] as _i2.EthereumAddress);
 
-  final _i2.Uint8List node;
+  final _i3.Uint8List node;
 
-  final _i1.EthereumAddress owner;
+  final _i2.EthereumAddress owner;
 }

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ens_dart/ens_dart.dart';
 import 'package:http/http.dart';
+import 'package:wallet/wallet.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:web_socket_channel/io.dart';
 
@@ -47,7 +48,7 @@ void main() {
     test('.getAddress() fetches correct address', () async {
       for (var i = 0; i < names.length; i++) {
         final addr = await ens.withName('${names[i]}.eth').getAddress();
-        expect(addr.hex, addresses[i]);
+        expect(addr.with0x, addresses[i]);
       }
     });
     test('.getTextRecord() fetches TextRecord', () async {
